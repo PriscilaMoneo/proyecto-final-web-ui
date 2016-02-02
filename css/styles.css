@@ -1,0 +1,150 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	font-family: 'Indie Flower', cursive;
+	background-color: #303F9F;
+	color:white;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+nav{
+	background-color: #009688;
+}
+nav ul li{
+	display: inline-block;
+	padding: 15px;
+	cursor:pointer;
+}
+nav ul li:hover, .nav_options span:hover, aside ul li:hover{
+	background-color: #00796B;
+}
+nav ul li:first-of-type{
+	margin-left: 10px;
+}
+header img{
+	width: 500px;
+	height: 100px;
+	margin-left: 30%;
+}
+aside{
+	float:right;
+	background-color: #009688;
+	width: 20%;
+}
+section{
+	background-color: #303F9F;
+	float:left;
+	width: 79%;
+	text-align: center;
+}
+footer{
+	width:98.5%;
+	background-color: #212121;
+	padding: 10px;
+}
+footer a{
+	color:white;
+	text-decoration: none;
+}
+footer a:visited{
+	color:white;
+}
+footer .sitemap{
+	font-size: 1.2em;
+	float:left;
+}
+footer .social{
+	font-size: 2em;
+	cursor: pointer;
+	float:right;
+}
+.clearfix{
+	clear:both;
+}
+.nav_options{
+	float:right;
+}
+
+aside ul li{
+	padding: 15px;
+	cursor:pointer;
+}
+.element{
+	margin:15px;
+	display: inline-block;
+}
+.element img{
+	display: block;
+	border: 1px solid black;
+	padding: 1px;
+	margin-bottom: 5px;
+}
+.element span{
+	display: block;
+	font-weight: bold;
+	color:#C5CAE9;
+}
+
+.element .elm_vm{
+	color:#C5CAE9;
+	background-color: #536DFE;
+	padding: 5px;
+	cursor:pointer;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px;
+}
+.search_button{
+	color:#C5CAE9;
+	width: 15px;
+	background-color: #303F9F;
+	padding: 5px;
+	cursor:pointer;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px;
+	display: inline-block;
+}
+.search_button:hover{
+	background-color: #3F51B5;
+}
+.no_hover:hover{
+	background-color:#009688; 
+}
