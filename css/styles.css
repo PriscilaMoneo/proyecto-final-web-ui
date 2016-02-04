@@ -1,3 +1,7 @@
+html{
+	position: relative;
+    min-height: 100%;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -28,6 +32,7 @@ body {
 	font-family: 'Indie Flower', cursive;
 	background-color: #727272;
 	color:white;
+	margin-bottom: 40px;
 }
 ol, ul {
 	list-style: none;
@@ -85,6 +90,16 @@ aside ul li{
 	border-bottom: 1px solid #FFC107;; 
 	cursor:pointer;
 }
+aside ul li:hover{
+	background-color:#3E464C; 
+}
+aside ul li:first-of-type{
+	text-align: center;
+}
+aside input[type="search"]{
+	width: 80%;
+	height: 25px;
+}
 .search_button{
 	color:#D32F2F;
 	width: 15px;
@@ -97,10 +112,11 @@ aside ul li{
 	display: inline-block;
 }
 .search_button:hover{
-	background-color: #3F51B5;
+	background-color: #272822;
 }
 .no_hover:hover{
-	background-color:#3E464C; 
+	background-color:#727272;
+	cursor:text; 
 }
 
 /* CONTENT */
@@ -114,6 +130,8 @@ section{
 	display: inline-block;
 }
 .element img{
+	width: 150px;
+	height: 200px;
 	display: block;
 	border: 1px solid black;
 	padding: 1px;
@@ -125,7 +143,7 @@ section{
 	color:#FFC107;
 }
 .element .elm_vm{
-	color:#C5CAE9;
+	color:#ccc;
 	background-color: #272822;
 	padding: 5px;
 	cursor:pointer;
