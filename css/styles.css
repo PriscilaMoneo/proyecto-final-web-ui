@@ -26,7 +26,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	font-family: 'Indie Flower', cursive;
-	background-color: #3F51B5;
+	background-color: #727272;
 	color:white;
 }
 ol, ul {
@@ -44,26 +44,34 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+input[type="text"],input[type="password"], input[type="search"]{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	height: 20px;
+	width: 100%;
+}
 
 /* HEADER */
 nav{
-	background-color: #303F9F;
+	background-color: #3E464C;
 }
 nav ul li{
 	display: inline-block;
-	padding: 15px;
+	padding: 10px;
 	cursor:pointer;
 }
-nav ul li:hover, .nav_options span:hover, aside ul li:hover{
-	background-color: #536DFE;
+nav ul li:hover{
+	border-bottom: 2px solid #D32F2F;
+	padding-bottom:8px;
 }
 nav ul li:first-of-type{
 	margin-left: 10px;
 }
-header img{
-	width: 500px;
+header .banner{
 	height: 100px;
-	margin-left: 30%;
+	width: 100%;
+	background-image: url("../img/bg1.jpg");
 }
 
 /* ASIDE */
@@ -74,13 +82,13 @@ aside{
 }
 aside ul li{
 	padding: 15px;
-	border-bottom: 1px solid #536DFE; 
+	border-bottom: 1px solid #FFC107;; 
 	cursor:pointer;
 }
 .search_button{
-	color:#C5CAE9;
+	color:#D32F2F;
 	width: 15px;
-	background-color: #303F9F;
+	background-color: #272822;
 	padding: 5px;
 	cursor:pointer;
 	-webkit-border-radius: 40px;
@@ -92,7 +100,7 @@ aside ul li{
 	background-color: #3F51B5;
 }
 .no_hover:hover{
-	background-color:#3F51B5; 
+	background-color:#3E464C; 
 }
 
 /* CONTENT */
@@ -114,11 +122,11 @@ section{
 .element span{
 	display: block;
 	font-weight: bold;
-	color:#C5CAE9;
+	color:#FFC107;
 }
 .element .elm_vm{
 	color:#C5CAE9;
-	background-color: #536DFE;
+	background-color: #272822;
 	padding: 5px;
 	cursor:pointer;
 	-webkit-border-radius: 40px;
@@ -137,6 +145,8 @@ footer{
 	width:98.5%;
 	background-color: #212121;
 	padding: 10px;
+	position: absolute;
+	bottom:0;
 }
 footer a{
 	color:white;
@@ -146,11 +156,11 @@ footer a:visited{
 	color:white;
 }
 footer .sitemap{
-	font-size: 1.2em;
+	font-size: 1em;
 	float:left;
 }
 footer .social{
-	font-size: 2em;
+	font-size: 1.2em;
 	cursor: pointer;
 	float:right;
 }
