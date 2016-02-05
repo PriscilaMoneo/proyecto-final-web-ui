@@ -41,10 +41,11 @@
 					</li>
 					<li>
 						<h3>Ordenar Por</h3>
-						<input type="radio" name="ordenCampo" value="nombre" onclick="grabarCampoDeOrden(this.value);"> Nombre de Comic <br>
-						<input type="radio" name="ordenCampo" value="personaje" onclick="grabarCampoDeOrden(this.value);"> Personaje <br>
-						<input type="radio" name="ordenCampo" value="puntaje" onclick="grabarCampoDeOrden(this.value);"> Puntaje
+						<input type="radio" name="ordenCampo" value="nombre" onclick="ordenar(this.value);"> Nombre de Comic <br>
+						<input type="radio" name="ordenCampo" value="personaje" onclick="ordenar(this.value);"> Personaje <br>
+						<input type="radio" name="ordenCampo" value="puntaje" onclick="ordenar(this.value);"> Puntaje
 					</li>
+
 					<li>
 						<button type="button" onclick="agregarNuevoComic();">Agregar Comic</button>
 					</li>
