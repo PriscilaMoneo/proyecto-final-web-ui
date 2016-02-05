@@ -4,6 +4,7 @@
 	<title>Comics</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	
 </head>
@@ -14,12 +15,7 @@
 			<nav>
 				<ul>
 					<li><i class="fa fa-home"></i> Home</li>
-					<li><i class="fa fa-users"></i> Personajes</li>
-					<li><i class="fa fa-exclamation-circle"></i> Novedades</li>
-					<li><i class="fa fa-line-chart"></i> Mas Votado</li>
-					<li><i class="fa fa-book"></i> Generos</li>
-					<li><i class="fa fa-archive"></i> Ediciones</li>
-					<li class="nav_options" onclick="log_out()"><i class="fa fa-sign-out"></i></li>
+					<li class="nav_options" onclick="log_out();"><i class="fa fa-sign-out"></i></li>
 				</ul>
 				<div class="clearfix"></div>
 			</nav>
@@ -34,12 +30,24 @@
 				<ul>
 				<li class="no_hover">Bienvenido, <span id="name_user"></span>!</li>
 					<li class="no_hover">
-						<input type="search"/>
-						<div class="search_button">
+						<input type="search" id="buscarInput" />
+						<div class="search_button" onclick="buscar();">
 							<i class="fa fa-search"></i>
 						</div>
+						<h3>Filtros</h3>
+						<input type="radio" name="filtroTipoBusqueda" value="nombre" onclick="grabarCampoDeFiltro(this.value);"> Nombre de Comic <br>
+						<input type="radio" name="filtroTipoBusqueda" value="personaje" onclick="grabarCampoDeFiltro(this.value);"> Personaje <br>
+						<input type="radio" name="filtroTipoBusqueda" value="puntaje" onclick="grabarCampoDeFiltro(this.value);"> Puntaje
 					</li>
-					<li>Recomendados</li>
+					<li>
+						<h3>Ordenar Por</h3>
+						<input type="radio" name="ordenCampo" value="nombre" onclick="grabarCampoDeOrden(this.value);"> Nombre de Comic <br>
+						<input type="radio" name="ordenCampo" value="personaje" onclick="grabarCampoDeOrden(this.value);"> Personaje <br>
+						<input type="radio" name="ordenCampo" value="puntaje" onclick="grabarCampoDeOrden(this.value);"> Puntaje
+					</li>
+					<li>
+						<button type="button" onclick="agregarNuevoComic();">Agregar Comic</button>
+					</li>
 				</ul>
 			</aside>
 			

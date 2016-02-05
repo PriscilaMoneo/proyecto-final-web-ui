@@ -1,13 +1,103 @@
- if (localStorage.getItem("user") == undefined){
- 	alert("Debes iniciar sesion para ver esto")
- 	window.location = "login.html";
- 	}else{
- document.getElementById('name_user').innerHTML = localStorage.getItem("user"); 
+// Por defecto buscamos por nombre del comic
+var campoDeFiltro = 'nombre';
+
+// Por defecto ordenamos por nombre del comic
+var campoDeOrden = 'nombre';
+
+if (localStorage.getItem("user") == undefined){
+  alert("Debes iniciar sesion para ver esto")
+  window.location = "login.html";
+} else {
+  document.getElementById('name_user').innerHTML = localStorage.getItem("user");
 }
 
 function log_out () {
-	localStorage.clear();
-	window.location = "login.html";
+  localStorage.clear();
+  window.location = "login.html";
+}
+
+function renderizarItems(arrayDeComics) {
+  var listContent = "";
+  for (i=0; i< arrayDeComics.length; i++){
+      listContent += "<div class='element'>";
+      listContent +=   "<img id='img_elm' src='"+ arrayDeComics[i].url +"'/>";
+      listContent +=      "<span id='nombre_elm'>"+ arrayDeComics[i].nombre +"</span>";
+      listContent +=      "<span id='pto_elm'>Puntaje: "+ arrayDeComics[i].puntaje +"</span>";
+      listContent +=      "<div class='elm_vm'><i class='fa fa-plus'></i> Ver Mas</div>";
+      listContent +=      "</div>";
+  }
+  return listContent;
+}
+
+function buscar() {
+  // El texto a buscar
+  var texto_busqueda = document.getElementById('buscarInput').value;
+
+  // Recibo el tipo de filtro. (Personaje, nombre, puntos) desde 'campoFiltro'
+  var resultadoBusqueda = filtrarPor(campoDeFiltro, texto_busqueda);
+
+  // Si hay resultados, renderizamos
+  if (resultadoBusqueda.length > 0) {
+    resultadoBusqueda = ordenarPor(resultadoBusqueda, campoDeOrden);
+    document.getElementById('content').innerHTML = renderizarItems(resultadoBusqueda);
+  } else {
+    // Si el texto de busqueda es vacio, entonces mostramos TODOSS los commics de nuevo.
+    if (texto_busqueda == '') {
+      resultadoBusqueda = ordenarPor(items.comics, campoDeOrden);
+      document.getElementById('content').innerHTML = renderizarItems(resultadoBusqueda);
+    } else {
+      document.getElementById('content').innerHTML = "Sin resultados";
+    }
+  }
+}
+
+function filtrarPor(campo, valor) {
+  var itemsFiltrados = items.comics.filter(function(elemento){
+    return elemento[campo].toLowerCase() === valor.toLowerCase();
+  });
+
+  return itemsFiltrados;
+}
+
+function ordenarPor(array, campo) {
+    var itemsOrdenados = array.sort(function(a, b) {
+        var x = a[campo]; var y = b[campo];
+
+        if (campo == 'puntaje') {
+          return ((parseInt(x) < parseInt(y)) ? -1 : ((parseInt(x) > parseInt(y)) ? 1 : 0));
+        } else {
+          return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        }
+
+    });
+
+    return itemsOrdenados;
+}
+
+function agregarNuevoComic() {
+  var nombre = prompt("Ingrese nombre del Comic", "");
+  var personaje = prompt("Ingrese nombre del Personaje", "");
+  var puntaje = prompt("Ingrese puntaje", "");
+  var url = prompt("Ingrese URL publica para imagen del comic", "https://upload.wikimedia.org/wikipedia/commons/2/29/WonderworldComics3.jpg");
+
+  if (nombre != null && personaje != null && puntaje != null) {
+
+      items.comics.push({"nombre": nombre, "personaje" : personaje, "url" : url, "puntaje" : puntaje});
+
+      // Renderizamos de nuevo todos los commiscs
+      document.getElementById('content').innerHTML = renderizarItems(items.comics);
+
+  } else {
+    alert("Error, intente nuevamente.")
+  }
+}
+
+function grabarCampoDeFiltro(campo) {
+  campoDeFiltro = campo;
+}
+
+function grabarCampoDeOrden(campo) {
+  campoDeOrden = campo;
 }
 
 items = {"comics":[
@@ -21,22 +111,6 @@ items = {"comics":[
     {"nombre":"Hulk", "personaje":"Hulk","url":"img/comic8.jpg","puntaje":"9"},
     {"nombre":"Patrula X", "personaje":"Patrula X","url":"img/comic9.jpg", "puntaje":"6"},
     {"nombre":"Silver Surfer", "personaje":"Silver Surfer","url":"img/comic10.jpg","puntaje":"7"},
+]};
 
-]}
-
-var tamano = items.comics.length;
-
-var listContent = "";
-
-for(i=0; i<tamano; i++){
-    listContent += "<div class='element'>";
-    listContent +=   "<img id='img_elm' src='"+ items.comics[i].url +"'/>";
-    listContent +=      "<span id='nombre_elm'>"+ items.comics[i].nombre +"</span>";
-    listContent +=      "<div class='elm_vm'><i class='fa fa-plus'></i> Ver Mas</div>";
-    listContent +=      "</div>";
-}
-
-document.getElementById('content').innerHTML = listContent;			
-					
-					
-				
+document.getElementById('content').innerHTML = renderizarItems(items.comics);
