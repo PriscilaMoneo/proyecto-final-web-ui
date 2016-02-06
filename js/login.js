@@ -4,6 +4,7 @@ var users = [{"user":"admin", "pass":"1234","nombre":"Juan","apellido":"Perez","
 function login () {
 	var user = document.getElementById("user").value;
 	var pass = document.getElementById("pass").value;
+	var counter = "";
 
 	for (var i = 0; i < users.length; i++) {
 		if (user == users[i].user && pass == users[i].pass){
@@ -11,8 +12,12 @@ function login () {
 		localStorage.setItem("nombre", users[i].nombre);
 		localStorage.setItem("apellido", users[i].apellido);
 		localStorage.setItem("img", users[i].img);
-		window.location = "index.html";
+		window.location = "index.html";		
+	}else{
+		counter++;
 	}
 	};
+	if (counter == users.length) {alert("Datos Incorrectos")};
+	
 }
 
