@@ -157,6 +157,30 @@ section{
 .nav_options{
 	float:right;
 }
+.show_user{
+	background-color: rgba(62, 70, 76, 0.9);
+	width:350px;
+	height: 220px;
+	margin: 10% auto;
+	padding: 30px;
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px;
+}
+.show_user span{
+	font-size: 1.5em;
+	color:#FFC107;
+}
+.img_user{
+	margin-left: 20px;
+	border: 2px solid #D32F2F;
+	width:150px;
+	float:left;
+}
+.texto_info{
+	float:left;
+	padding: 10px;
+}
 
 /* FOOTER */
 footer{

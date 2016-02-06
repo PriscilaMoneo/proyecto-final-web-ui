@@ -14,7 +14,8 @@
 		<div class="banner"></div>
 			<nav>
 				<ul>
-					<li><i class="fa fa-home"></i> Home</li>
+					<li onclick="show_comics();"><i class="fa fa-home"></i> Home</li>
+					<li onclick="show_myaccount();"><i class="fa fa-user"></i> My Account</li>
 					<li class="nav_options" onclick="log_out();"><i class="fa fa-sign-out"></i></li>
 				</ul>
 				<div class="clearfix"></div>
@@ -24,14 +25,17 @@
 
 		<div class="content_wrapper">
 		<section>
-		<div id="content"></div>			
+		<div id="content"></div>
+		</div>			
 		</section>
 			<aside>
 				<ul>
-				<li class="no_hover">Bienvenido, <span id="name_user"></span>!</li>
+				<li class="no_hover">Bienvenido, <span id="name_user"></span>!
+					<div id="user_info"></div>
+				</li>
 					<li class="no_hover">
 						<input type="search" id="buscarInput" />
-						<div class="search_button" onclick="buscar();">
+						<div class="search_button" onclick="buscar('false');">
 							<i class="fa fa-search"></i>
 						</div>
 						<h3>Filtros</h3>

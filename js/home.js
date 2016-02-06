@@ -9,11 +9,28 @@ if (localStorage.getItem("user") == undefined){
   window.location = "login.html";
 } else {
   document.getElementById('name_user').innerHTML = localStorage.getItem("user");
-}
 
 function log_out () {
-  localStorage.clear();
+  localStorage.removeItem("user");
   window.location = "login.html";
+}
+
+function show_myaccount () {
+  var userContent = "";
+  document.getElementById('content').innerHTML = userContent;
+
+  userContent += "<div class='show_user'><div class='texto_info'>";
+  userContent +=   "<span>Name: </span>" + localStorage.getItem("nombre") + "<br/><br/>";
+  userContent +=   "<span>Surname: </span>"+ localStorage.getItem("apellido") + "<br/><br/>";
+  userContent +=   "<span>User: </span>"+ localStorage.getItem("user") + "</div>";
+  userContent +=   "<img class='img_user' src='"+localStorage.getItem("img")+"'/>";
+  userContent +=   "</div>";
+
+  document.getElementById('content').innerHTML = userContent;
+
+}
+function show_comics () {
+  document.getElementById('content').innerHTML = renderizarItems(items.comics);
 }
 
 function renderizarItems(arrayDeComics) {
@@ -76,10 +93,12 @@ function ordenarPor(array, campo) {
           return ((parseInt(x) < parseInt(y)) ? -1 : ((parseInt(x) > parseInt(y)) ? 1 : 0));
         } else {
           return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-        }
+        }  
 
     });
-
+    if (campo == 'puntaje') {
+          itemsOrdenados.reverse();
+        };
     return itemsOrdenados;
 }
 
@@ -127,3 +146,6 @@ if (localStorage.getItem("items") == null) {
 }
 
 document.getElementById('content').innerHTML = renderizarItems(items.comics);
+
+
+};
